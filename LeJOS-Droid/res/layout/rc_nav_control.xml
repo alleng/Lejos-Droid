@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/view1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="13dip"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:paddingTop="5dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_label"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/name_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:capitalize="none"
+                    android:minWidth="250dip"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dip"
+                    android:singleLine="true"
+                    android:text="@string/address_label"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/address_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:capitalize="none"
+                    android:minWidth="250dip"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dip"
+                    android:singleLine="true"
+                    android:text="@string/status_label"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/message_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dip"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#c6c3c6"
+            android:minHeight="54dip"
+            android:paddingLeft="2dip"
+            android:paddingRight="2dip"
+            android:paddingTop="4dip" >
+
+            <Button
+                android:id="@+id/ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:minWidth="100dip"
+                android:onClick="handleConnect"
+                android:text="@string/connect_button" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/view2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1" >
+
+        <TableRow >
+
+            <Button
+                android:id="@+id/goto_button_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:minWidth="100dip"
+                android:onClick="handleGoTo"
+                android:text="@string/goto_button" />
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <TextView
+                    android:id="@+id/goto_x_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X:" />
+
+                <EditText
+                    android:id="@+id/goto_x_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/goto_x_label"
+                    android:background="@android:drawable/editbox_background"
+                    android:inputType="numberSigned" />
+
+                <TextView
+                    android:id="@+id/goto_y_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/goto_x_edit"
+                    android:text="Y:" />
+
+                <EditText
+                    android:id="@+id/goto_y_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/goto_y_label"
+                    android:background="@android:drawable/editbox_background"
+                    android:inputType="numberSigned" />
+
+                <Button
+                    android:id="@+id/map_left_button_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/goto_y_edit"
+                    android:onClick="handleMapLeft"
+                    android:text="@string/map_left_button" />
+
+                <Button
+                    android:id="@+id/map_right_button_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/map_left_button_id"
+                    android:onClick="handleMapRight"
+                    android:text="@string/map_right_button" />
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow >
+
+            <Button
+                android:id="@+id/travel_button_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:minWidth="100dip"
+                android:onClick="handleTravel"
+                android:text="@string/travel_button" />
+
+            <EditText
+                android:id="@+id/travel_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:autoText="false"
+                android:capitalize="none"
+                android:inputType="numberSigned"
+                android:minWidth="250dip"
+                android:scrollHorizontally="true"
+                android:singleLine="true" />
+        </TableRow>
+
+        <TableRow >
+
+            <Button
+                android:id="@+id/rotate_button_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:minWidth="100dip"
+                android:onClick="handleRotate"
+                android:text="@string/rotate_button" />
+
+            <EditText
+                android:id="@+id/rotate_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:autoText="false"
+                android:capitalize="none"
+                android:inputType="numberSigned"
+                android:minWidth="250dip"
+                android:scrollHorizontally="true"
+                android:singleLine="true" />
+        </TableRow>
+
+        <TableRow >
+
+            <Button
+                android:id="@+id/posebutton_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:minWidth="100dip"
+                android:onClick="handlePose"
+                android:text="@string/pose_button" />
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <TextView
+                    android:id="@+id/pose_x_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X:" />
+
+                <EditText
+                    android:id="@+id/pose_x_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/pose_x_label"
+                    android:background="@android:drawable/editbox_background"
+                    android:inputType="numberSigned" />
+
+                <TextView
+                    android:id="@+id/pose_y_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/pose_x_edit"
+                    android:text="Y:" />
+
+                <EditText
+                    android:id="@+id/pose_y_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/pose_y_label"
+                    android:background="@android:drawable/editbox_background"
+                    android:inputType="numberSigned" />
+
+                <TextView
+                    android:id="@+id/pose_heading_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/pose_y_edit"
+                    android:text="Head:" />
+
+                <EditText
+                    android:id="@+id/pose_heading_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/pose_heading_label"
+                    android:background="@android:drawable/editbox_background"
+                    android:inputType="numberSigned" />
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow >
+
+            <Button
+                android:id="@+id/stop_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:minWidth="100dip"
+                android:onClick="handleStop"
+                android:text="@string/stop_button" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/view3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingBottom="13dip"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
+        android:paddingTop="5dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dip"
+            android:singleLine="true"
+            android:text="@string/x_label"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:minWidth="250dip"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dip"
+            android:singleLine="true"
+            android:text="@string/y_label"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:minWidth="250dip"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="250dip"
+            android:singleLine="true"
+            android:text="@string/heading_label"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="250dip"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
+
+    <ieor140.Map
+        android:id="@+id/robotMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>
