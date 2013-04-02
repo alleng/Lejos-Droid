@@ -32,7 +32,6 @@ public class Communicator {
      * connects to PC via bluetooth
      */
     public void connect() {
-        // you can copy most of this code from BTRecieve
         LCD.drawString("Waiting for Connection...", 0, 1);
         BTConnection btc = Bluetooth.waitForConnection();
         LCD.drawString("Connected", 0, 1);

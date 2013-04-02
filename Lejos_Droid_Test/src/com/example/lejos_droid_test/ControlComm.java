@@ -53,6 +53,7 @@ public class ControlComm {
             reader.start();
         }
         xmppComm.start();
+        Log.d(TAG, "xmppComm started");
         return connected;
     }
 

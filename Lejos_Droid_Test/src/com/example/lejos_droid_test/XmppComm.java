@@ -48,6 +48,9 @@ public class XmppComm extends Thread {
         try {
             connection.login(username, password);
             Log.i("XMPPClient", "Logged in as " + connection.getUser());
+            Message m = new Message("shodutta92@gmail.com", Message.Type.chat);
+            m.setBody("Connected");
+            connection.sendPacket(m);
 
             // Set the status to available
             Presence presence = new Presence(Presence.Type.available);
@@ -100,7 +103,11 @@ public class XmppComm extends Thread {
             data[i - 1] = messageInt;
         }
         try {
-            control.send(header, data, true);
+            if (header == Header.PICTURE.ordinal()) {
+                control.sendToUIThread(header, data);
+            } else {
+                control.send(header, data, true);
+            }
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

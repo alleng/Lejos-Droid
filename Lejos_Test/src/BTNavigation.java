@@ -1,4 +1,5 @@
 import lejos.nxt.Motor;
+import lejos.nxt.Sound;
 import lejos.robotics.localization.OdometryPoseProvider;
 import lejos.robotics.localization.PoseProvider;
 import lejos.robotics.navigation.DifferentialPilot;
@@ -63,9 +64,14 @@ public class BTNavigation implements CommListener {
      * @param args
      */
     public static void main(String[] args) {
-
+        Sound.beep();
+        Delay.msDelay(200);
         BTNavigation myRobot = new BTNavigation();
+        Sound.beep();
+        Delay.msDelay(200);
         myRobot.go();
+        Sound.beep();
+        Delay.msDelay(200);
     }
 
     /**
@@ -74,7 +80,8 @@ public class BTNavigation implements CommListener {
     public void go() {
         poseProv.setPose(origin);
         pilot.setAcceleration(1400);
-
+        Sound.beep();
+        Delay.msDelay(200);
         communicator.connect();
         while (true) {
             if (messageReceived) {

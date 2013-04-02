@@ -4,7 +4,12 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical" >
-
+    <FrameLayout
+        android:id="@+id/preview"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </FrameLayout>
     <TextView
         android:id="@+id/xText"
         android:layout_width="match_parent"
